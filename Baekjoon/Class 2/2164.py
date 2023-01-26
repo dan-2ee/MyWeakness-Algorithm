@@ -6,11 +6,8 @@ n = int(sys.stdin.readline())
 if (n == 1 or n == 2):
     print(n)
 else:
-    dq = deque()
-    cnt = 2
-    while(cnt <= n):   
-        dq.append(cnt)
-        cnt += 2
+    dq = deque([i for i in range(2, n+1, 2)])
+    
     if (n%2):  
         while(len(dq)!=1):
             dq.append(dq.popleft())
