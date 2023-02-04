@@ -1,0 +1,10 @@
+import sys
+
+n, k = map(int, sys.stdin.readline().split())
+notListen = set([sys.stdin.readline().strip() for _ in range(n)])
+notSee = set([sys.stdin.readline().strip() for _ in range(k)])
+common = sorted(notListen & notSee)
+print(len(common))
+
+for i in common:
+    print(i)
