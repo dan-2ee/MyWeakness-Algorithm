@@ -1,4 +1,4 @@
-## 🚀 Algorithm Study With Me 🚀
+## 🚀 Algorithm Study 🚀
 ### ✔️ CheCk
 <span>1. 매일 최소 한 문제씩 풀기 </span>
 <br/>
