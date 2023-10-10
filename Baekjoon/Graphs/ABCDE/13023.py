@@ -1,38 +1,30 @@
 import sys
 
-def dfs(start, person):
-    for i in range(N):
-        if graphs[person][i] and i!=start:
-            return True
-    return False
-
-
-
+def dfs(start, depth):
+    global result
+    if depth == 4:
+        result = True
+        return
+    visited[start] = True
+    for idx in graphs[start]:
+        if not visited[idx]:
+            dfs(idx, depth+1)
+            visited[idx] = False     
+    
 input = sys.stdin.readline
-N, M = list(map(int, input().split()))   # 사람의 수, 관계의 수
-graphs = [[False] * N for _ in range(N)]
+N, M = list(map(int, input().split()))   
+graphs = [[] for _ in range(N)]
+result = False
 
 for _ in range(M):
     line = list(map(int, input().split()))
-    graphs[line[0]][line[1]] = True
+    graphs[line[0]].append(line[1])
+    graphs[line[1]].append(line[0])
 
-person = [i for i in range(N)]
-
-while person:
-    start = person[0]
-    person.remove(start)
-    for idx, value in enumerate(graphs[start]):
-        if value:
-            result = dfs(start, idx)
-            if result:
-                print(1)
-                sys.exit()
-
+for i in range(N):
+    visited = [False] * N
+    dfs(i, 0)
+    if result:
+        print(1)
+        sys.exit()
 print(0)
-    
-
-    
-    
-
-
-
