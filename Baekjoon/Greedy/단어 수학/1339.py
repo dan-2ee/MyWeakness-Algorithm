@@ -4,29 +4,18 @@ input = sys.stdin.readline
 N = int(input())
 words = [input().strip() for _ in range(N)]
 
-values = {}
+alphabet = {}
 for word in words:
-    idx = 1
     l = len(word)
-    for char in word:
-        if char in values:
-            values[char] += (10 ** (l-idx))
+    for idx, char in enumerate(word):
+        if char in alphabet:
+            alphabet[char] += (10 ** (l-idx-1))
         else:
-            values[char] = (10 ** (l-idx))
-        idx+=1
+            alphabet[char] = (10 ** (l-idx-1))
 
-cnt = 9
-values = dict(sorted(values.items(), key=lambda x:x[1], reverse=True))
-for key, value in values.items():
-    values[key] = cnt
-    cnt -= 1
+sum = 0
+alphabetCounts = dict(sorted(alphabet.items(), key=lambda x:x[1], reverse=True))
+for idx, alphabet in enumerate(alphabetCounts.values()):
+    sum += (alphabet * (9-idx))
 
-res = []
-for word in words:
-    tmp = ""
-    for char in word:
-        tmp += str(values[char])
-    res.append(int(tmp))
-
-print(sum(res))
-
+print(sum)
