@@ -1,3 +1,4 @@
+# 다익스트라 일반 구현
 import sys
 
 INF = sys.maxsize
@@ -30,6 +31,7 @@ def Dijkstra(start):
         next = SmallestNode()
         visited[next] = 1
         for node in matrix[next]:
+            # if 1->2->3 으로 가는 것 < 1->3 으로 가는 것 => distance[3] = distance[next] + node[1] 로 업데이트 
             if distance[node[0]] > distance[next] + node[1]:
                 distance[node[0]] = distance[next] + node[1]
     distance[start] = 0  # 시작 노드의 가중치는 0 
