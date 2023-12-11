@@ -2,12 +2,7 @@
 
 ### 문제
 
-        7
-      3   8
-    8   1   0
-
-2 7 4 4
-4 5 2 6 5
+<img width="230" alt="image" src="https://github.com/dan-2ee/MyWeakness-Algorithm/assets/65989401/cbe15b73-7def-475e-b261-800d1399fb2f"/>
 
 위 그림은 크기가 5인 정수 삼각형의 한 모습이다.
 
