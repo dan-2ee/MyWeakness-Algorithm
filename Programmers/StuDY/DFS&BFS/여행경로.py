@@ -6,16 +6,18 @@ def solution(tickets):
         else:
             route[start] = [end]
     
-    # 사전 역순으로 정렬
+    # 사전순으로 정렬
     for key in route:
-        route[key].sort(reverse=True)
+        route[key].sort()
 
     answer, path = [], ['ICN']
+    
     while path:
         start = path[-1]
-        # 경로가 없거나 출발지가 없는 경우, 도착
+        # 출발지가 없거나, 출발지에서 갈 수 있는 도착지가 없는 경우
         if start not in route or len(route[start]) == 0:
             answer.append(path.pop())
         else:
-            path.append(route[start].pop())
+            path.append(route[start].pop(0))
+    
     return answer[::-1]
