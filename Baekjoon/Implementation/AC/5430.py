@@ -17,11 +17,8 @@ for _ in range(T):
         elif c == 'D' and reversed and nums:
             nums.pop()
         else:
-            nums = 'error'
-            break
-    
-    if nums == 'error':
-        print('error')
+            print('error')
+            break   
     else:
         if reversed: nums.reverse()
         print("["+",".join(list(nums))+"]")
